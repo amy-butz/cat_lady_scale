@@ -236,6 +236,16 @@ $(document).ready(function(){
         $("option[value=" + this.value + "]").attr('selected', true);
     });
 
+var c=document.getElementById("canvas");
+var ctx=c.getContext("2d");
+var coords = [[15,15], [95,15], [175,15],[255,15], [335,15], [415,15], [495,15], [575,15], [655,15], [735,15]];
+for(var i = 0; i < coords.length; i++){
+    ctx.beginPath();
+    ctx.arc(coords[i][0], coords[i][1], 10, 0, 2*Math.PI);
+    ctx.stroke();
+}
+
+
     // initial setup
     fillBehaviorDropDown(); // fill drop down
     displayStatus(catLady.status); // display initial cat lady status
