@@ -105,12 +105,14 @@ $(document).ready(function(){
 
 
         status: CAT_LADY_SCALE[5], // just the inital status... INDIFFERENT
+        statusNumber: 5,
         updateStatus: function () {
               var total = 5;
               for (var i = 0; i < this.behaviors.length; i++){
                 total += this.behaviors[i].pointValue;
               console.log("Total is: " + total);
           };
+          this.statusNumber = total;
           this.status = CAT_LADY_SCALE[total];
         },
       };
@@ -202,6 +204,9 @@ $(document).ready(function(){
       console.log("this is running");
       $('.status-image').children('img').attr("src", catLadyStatus.imagePath());
       $('.status-title').text(catLadyStatus.title);
+      $('.circle').removeClass('filled');
+      $('#circle' + catLady.statusNumber).addClass('filled');
+      
         //------------------------------------------------------------------------------------------
         // TODO: CHALLENGE 11 DONE??
         // Here you should use jquery to to update the Cat Lady Status Display. To do this:
@@ -236,14 +241,14 @@ $(document).ready(function(){
         $("option[value=" + this.value + "]").attr('selected', true);
     });
 
-var c=document.getElementById("canvas");
-var ctx=c.getContext("2d");
-var coords = [[15,15], [95,15], [175,15],[255,15], [335,15], [415,15], [495,15], [575,15], [655,15], [735,15]];
-for(var i = 0; i < coords.length; i++){
-    ctx.beginPath();
-    ctx.arc(coords[i][0], coords[i][1], 10, 0, 2*Math.PI);
-    ctx.stroke();
-}
+//var c=document.getElementById("canvas");
+//var ctx=c.getContext("2d");
+//var coords = [[15,15], [95,15], [175,15],[255,15], [335,15], [415,15], [495,15], [575,15], [655,15], [735,15]];
+//for(var i = 0; i < coords.length; i++){
+//    ctx.beginPath();
+//    ctx.arc(coords[i][0], coords[i][1], 10, 0, 2*Math.PI);
+//    ctx.stroke();
+//}
 
 
     // initial setup
